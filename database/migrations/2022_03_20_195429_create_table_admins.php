@@ -13,6 +13,8 @@ class CreateTableAdmins extends Migration
      */
     public function up()
     {
+
+        //comentario
         Schema::create('table_admins', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
