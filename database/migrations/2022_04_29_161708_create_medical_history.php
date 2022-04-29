@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableAdmin extends Migration
+class CreateMedicalHistory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateTableAdmin extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('admins')){
-            Schema::create('admins', function (Blueprint $table) {
+        if (!Schema::hasTable('medical_history')) {
+            Schema::create('medical_history', function (Blueprint $table) {
                 $table->id();
-                $table->string('email')->unique()->nullable(false);
-                $table->string('name')->comment('nombre del administrador');
-                $table->string('password');
-
+                $table->softDeletes('deleted_at');
+                $table->text('description');
+                $table->unsignedBigInteger('user_id');
                 $table->timestamps();
+                $table->foreign('user_id')->references('id')->on('users');
             });
-
         }
-
     }
 
     /**
@@ -34,6 +32,6 @@ class CreateTableAdmin extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('medical_history');
     }
 }
