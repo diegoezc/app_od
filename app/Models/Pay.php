@@ -12,7 +12,7 @@ class Pay extends BaseModel
         'amount',
         'user_id',
         'type_id',
-        'history_id',
+        'dental_history_id',
         'type_payments_id'
     ];
     public function Types(){

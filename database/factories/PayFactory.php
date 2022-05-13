@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\DentalHistory;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -19,7 +20,8 @@ class PayFactory extends Factory
             'amount' => $this->faker->numberBetween(),
             'user_id' => User::factory()->create(),id,
             'type_id' => Type::factory()->create(),id,
-            'history_id' => Histor
-        ];
+            'history_id' => DentalHistory::factory(),$this->create(),id,
+            
+            ];
     }
 }
