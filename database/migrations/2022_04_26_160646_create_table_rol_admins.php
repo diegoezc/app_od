@@ -17,8 +17,8 @@ class CreateTableRolAdmins extends Migration
         if (!Schema::hasTable('role_admins')) {
             Schema::create('role_admins', function (Blueprint $table) {
                 $table->id();
-                $table->integer("role_id")->unsigned()->nullable();
-                $table->integer("admin_id")->unsigned()->nullable();
+                $table->unsignedBigInteger("role_id")->nullable();
+                $table->unsignedBigInteger("admin_id")->nullable();
 
 
                 $table->timestamps();
@@ -29,6 +29,7 @@ class CreateTableRolAdmins extends Migration
     }
 
     /**
+     *
      * Reverse the migrations.
      *
      * @return void

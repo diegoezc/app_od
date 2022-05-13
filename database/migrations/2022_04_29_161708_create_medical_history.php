@@ -13,8 +13,8 @@ class CreateMedicalHistory extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('medical_history')) {
-            Schema::create('medical_history', function (Blueprint $table) {
+        if (!Schema::hasTable('medical_histories')) {
+            Schema::create('medical_histories', function (Blueprint $table) {
                 $table->id();
                 $table->softDeletes('deleted_at');
                 $table->text('description');

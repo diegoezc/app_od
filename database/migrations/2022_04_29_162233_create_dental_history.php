@@ -13,17 +13,9 @@ class CreateDentalHistory extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('dental_history')) {
-            Schema::create('dental_history', function (Blueprint $table) {
-                $table->id();
-                $table->text('description');
-                $table->softDeletes('deleted_at');
-                $table->unsignedBigInteger('user_id');
-                $table->timestamps();
-                $table->foreign('user_id')->references('id')->on('users');
-            });
-        }
+        //
     }
+
 
     /**
      * Reverse the migrations.
