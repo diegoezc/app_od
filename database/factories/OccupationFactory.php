@@ -14,7 +14,7 @@ class OccupationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name(),
         ];
     }
 }

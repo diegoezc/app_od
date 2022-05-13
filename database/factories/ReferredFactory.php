@@ -14,7 +14,9 @@ class ReferredFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'number' => $this->faker->phoneNumber(),
+            'email' => $this->faker->email(),
         ];
     }
 }

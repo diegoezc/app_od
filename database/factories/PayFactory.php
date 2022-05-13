@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\DentalHistory;
 use App\Models\Type;
+use App\Models\TypePay;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,10 +19,10 @@ class PayFactory extends Factory
     {
         return [
             'amount' => $this->faker->numberBetween(),
-            'user_id' => User::factory()->create(),id,
-            'type_id' => Type::factory()->create(),id,
-            'history_id' => DentalHistory::factory(),$this->create(),id,
-            
+            'user_id' => User::factory()->create()->id,
+            'type_id' => Type::factory()->create()->id,
+            'dental_history_id' => DentalHistory::factory()->create()->id,
+            'type_payments_id' => TypePay::factory()->create()->id,
             ];
     }
 }

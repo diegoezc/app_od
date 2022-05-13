@@ -20,13 +20,8 @@ class DentalHistoryFactory extends Factory
     public function definition()
     {
         return [
-            'date' => $this->faker->date(),
-            'location_id' => Location::factory()->create()->id,
-            'sector_id' => Sector::factory()->create(),id,
-            'user_id' => User::factory()->create(),id,
-            'referred_id' => Referred::factory()->create(),id,
-            'detail_mother_id' => DetailMother::factory()->create(),id,
-            'detail_father_id' => DetailFather::factory()->create(),id,
+            'description' => $this->faker->paragraph(1),
+            'user_id' => User::factory()->create()->id,
         ];
     }
 }

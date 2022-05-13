@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Admin;
+use App\Models\Rol;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RolAdminFactory extends Factory
@@ -14,7 +16,8 @@ class RolAdminFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'role_id' => Rol::factory()->create()->id,
+            'admin_id' => Admin::factory()->create()->id,
         ];
     }
 }
