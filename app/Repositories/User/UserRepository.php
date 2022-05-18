@@ -13,4 +13,5 @@ class UserRepository extends Repository implements Service, UserService
    {
        $this->model = new User();
    }
+
 }

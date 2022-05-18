@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Occupation\repository\OccupationRepository;
+use App\Http\Controllers\Occupation\service\OccupationService;
+use App\Http\Controllers\Sector\repository\SectorRepository;
+use App\Http\Controllers\Sector\service\SectorService;
 use App\Repositories\Repository;
 use App\Repositories\User\UserRepository;
 use App\Services\Service;
@@ -19,6 +23,8 @@ class RegisterInterfacesProvider extends ServiceProvider
     {
         $this->app->bind(Service::class ,Repository::class);
         $this->app->bind(UserService::class,UserRepository::class);
+        $this->app->bind(OccupationService::class,OccupationRepository::class);
+        $this->app->bind(SectorService::class,SectorRepository::class);
     }
 
     /**
