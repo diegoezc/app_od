@@ -17,4 +17,16 @@ class Admin extends BaseModel implements AdminInterface
     public function Roles(){
         return $this->belongsToMany(Rol::class,'rol_admins');
     }
+    public function scopeSearch($query, $target){
+        if ($target != '')
+        {
+            return $query
+                ->where('admins.name','LIKE','%'.$target.'%')
+                ->orWhere(function ($query) use ($target) {
+                    return $query
+                        ->where('admins.email','LIKE','%'.$target.'%');
+                });
+
+        }
+    }
 }

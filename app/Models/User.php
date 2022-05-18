@@ -57,4 +57,18 @@ class User extends Authenticatable
          return $this->hasOne(UserDetail::class,'user_id','id');
      }
 
+     public function scopeSearch($query, $target){
+         if ($target != ''){
+             return $query
+                 ->where('users.name','LIKE','%'.$target.'%')
+                 ->orWhere('users.lastname','LIKE','%'.$target.'%')
+                 ->orWhere('users.number','LIKE','%'.$target.'%')
+                 ->orWhere('users.identity_card','LIKE','%'.$target.'%')
+                 ->orWhere(function ($query) use ($target) {
+                     return $query
+                         ->where('users.email','LIKE','%'.$target.'%');
+                 });
+         }
+     }
+
 }
