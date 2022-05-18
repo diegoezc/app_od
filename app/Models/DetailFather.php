@@ -10,10 +10,13 @@ class DetailFather extends BaseModel
     use HasFactory;
     protected $fillable = [
         'name',
-        'ocupation_id',
+        'occupation_id',
         'business'
     ];
     public function UserDetail(){
         return $this->hasOne(UserDetail::class,'detail_father_id','id');
+    }
+    public function Occupation(){
+        return $this->hasOne(Occupation::class, 'id','occupation_id');
     }
 }

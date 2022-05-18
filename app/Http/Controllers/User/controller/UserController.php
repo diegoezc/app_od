@@ -26,6 +26,11 @@ class UserController extends Controller
         return $this->responseWithData($users);
 
     }
+    public function userDetail(Request $request,$id)
+    {
+        $user = $this->userService->getUserInfo($id);
+        return $this->responseWithData($user);
+    }
 
 }
 

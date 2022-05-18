@@ -18,19 +18,19 @@ class UserDetail extends BaseModel
         'detail_father_id',
     ];
     public function Location(){
-        return $this->hasOne(Location::class,'location_id','id');
+        return $this->hasOne(Location::class,'id','location_id');
     }
     public function Sector(){
-        return $this->hasOne(Sector::class,'sector_id','id');
+        return $this->hasOne(Sector::class,'id','sector_id');
     }
     public function Referred(){
-        return $this->hasOne(Referred::class,'referred_id','id');
+        return $this->hasOne(Referred::class,'id','referred_id');
     }
     public function DetailMother(){
-        return $this->hasOne(DetailMother::class,'detail_mother_id','id');
+        return $this->hasOne(DetailMother::class,'id','detail_mother_id');
     }
     public function DetailFather(){
-        return $this->hasOne(DetailFather::class,'detail_father_id','id');
+        return $this->hasOne(DetailFather::class,'id','detail_father_id');
     }
 }
 

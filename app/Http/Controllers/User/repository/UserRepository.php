@@ -25,4 +25,20 @@ class UserRepository extends Repository implements Service, UserService
         return $users;
     }
 
+    public function getUserInfo(int $id)
+    {
+        $user= $this->findInstance($id);
+        if(!empty($user)){
+            $user->userDetail->detailFather;
+            $user->userDetail->detailMother;
+            $user->userDetail->sector;
+            $user->userDetail->location;
+            $user->userDetail->referred;
+            $user->userDetail->detailFather->occupation;
+            $user->userDetail->detailMother->occupation;
+            return $user;
+        }
+        return 'error';
+
+    }
 }

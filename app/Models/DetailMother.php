@@ -16,4 +16,7 @@ class DetailMother extends BaseModel
     public function UserDetail(){
         return $this->hasOne(UserDetail::class,'detail_mother_id','id');
     }
+    public function Occupation(){
+        return $this->hasOne(Occupation::class, 'id','occupation_id');
+    }
 }
