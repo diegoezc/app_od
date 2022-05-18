@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DentalHistory extends BaseModel
 {
-    protected $table='dental_history';
+    protected $table='dental_histories';
     use HasFactory;
     protected $fillable = [
         'description',

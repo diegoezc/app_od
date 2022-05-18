@@ -18,11 +18,9 @@ class PayFactory extends Factory
     public function definition()
     {
         return [
-            'amount' => $this->faker->numberBetween(),
+            'amount' => $this->faker->numberBetween(30,50),
             'user_id' => User::factory()->create()->id,
-            'type_id' => Type::factory()->create()->id,
             'dental_history_id' => DentalHistory::factory()->create()->id,
-            'type_payments_id' => TypePay::factory()->create()->id,
             ];
     }
 }

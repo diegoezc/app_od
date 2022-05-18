@@ -7,13 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pay extends BaseModel
 {
+    protected $table = "payments";
     use HasFactory;
     protected $fillable = [
         'amount',
         'user_id',
-        'type_id',
         'dental_history_id',
-        'type_payments_id'
     ];
     public function Types(){
         return $this->belongsToMany(Type::class,'type_payments');
