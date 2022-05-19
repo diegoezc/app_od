@@ -2,17 +2,14 @@
 
 namespace App\Models;
 
+use App\Interfaces\DetailParent\DetailParentInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DetailMother extends BaseModel
+class DetailMother extends BaseModel implements DetailParentInterface
 {
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'ocupation_id',
-        'business'
-    ];
+    protected $fillable = self::FILLABLE;
     public function UserDetail(){
         return $this->hasOne(UserDetail::class,'detail_mother_id','id');
     }
