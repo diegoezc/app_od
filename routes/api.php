@@ -7,7 +7,7 @@ use App\Http\Controllers\Occupation\controller\OccupationController;
 use App\Http\Controllers\User\controller\UserController;
 use App\Http\Controllers\Admin\controller\AdminController;
 
-
+use App\Http\Controllers\User\controller\StoreUserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,3 +28,5 @@ Route::get('occupations',[OccupationController::class,'index']);
 Route::get('users',[UserController::class,'index']);
 Route::get('admins',[AdminController::class, 'index']);
 Route::get('user/detail/{id}',[UserController::class, 'userDetail']);
+
+Route::post('user/store', [StoreUserController::class ,'storeUser']);

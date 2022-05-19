@@ -34,6 +34,13 @@ class StoreUserRequest extends FormRequestApi
             ValidatorInterface::MIN_CAMP. OperatorInterface::ONE
         ];
     }
+    public function rulesSomeTimes(){
+        return [
+            ValidatorInterface::SOMETIMES,
+            ValidatorInterface::CAMP_STRING,
+            ValidatorInterface::MIN_CAMP. OperatorInterface::ONE
+        ];
+    }
     private function rulesTextEmail(){
         return [
             ValidatorInterface::REQUIRED,
@@ -48,10 +55,10 @@ class StoreUserRequest extends FormRequestApi
     }
     private function rulesCampsParents(string $detail_parent){
         return [
-            $detail_parent.'.'.DetailParentInterface::NAME => $this->rulesTextUser(),
-            $detail_parent.'.'.DetailParentInterface::BUSINESS => $this->rulesTextUser(),
+            $detail_parent.'.'.DetailParentInterface::NAME => $this->rulesSomeTimes(),
+            $detail_parent.'.'.DetailParentInterface::BUSINESS => $this->rulesSomeTimes(),
             $detail_parent.'.'.DetailParentInterface::OCCUPATION_ID => [
-                ValidatorInterface::REQUIRED,
+                ValidatorInterface::SOMETIMES,
                 ValidatorInterface::UNIQUE_CAMP . OccupationInterface::TABLE_NAME.','.'id'
             ]
 
@@ -66,7 +73,7 @@ class StoreUserRequest extends FormRequestApi
     }
     private function rulesToUnique($camp_unique,$unique_by,$type){
         return [
-            ValidatorInterface::REQUIRED,
+            ValidatorInterface::SOMETIMES,
             ValidatorInterface::UNIQUE_CAMP.$camp_unique.','.$unique_by,
             $type
         ];
@@ -87,7 +94,7 @@ class StoreUserRequest extends FormRequestApi
                 ValidatorInterface::NULLABLE
             ],
             'user_detail.born-date'=> [
-                ValidatorInterface::REQUIRED
+                ValidatorInterface::SOMETIMES
                 ,ValidatorInterface::DATE,
                 ValidatorInterface::DATE_FORMAT_FORMAT_STANDAR
             ],
@@ -96,8 +103,8 @@ class StoreUserRequest extends FormRequestApi
             'referred' => [
                 ValidatorInterface::NULLABLE
             ],
-            'referred.name' => $this->rulesTextUser(),
-            'referred.number' => $this->rulesTextUser(),
+            'referred.name' => $this->rulesSomeTimes(),
+            'referred.number' => $this->rulesSomeTimes(),
             'referred.email'=> $this->rulesToUnique(ReferredInterface::TABLE_NAME,ReferredInterface::EMAIL, ValidatorInterface::EMAIL_CAMP)
 
         ];
@@ -108,7 +115,6 @@ class StoreUserRequest extends FormRequestApi
     public function messages()
     {
         return [
-
         ];
     }
 }
