@@ -10,6 +10,6 @@ interface UserInterface
     const NAME        = 'name';
     const TABLE_NAME  = 'users';
     const IDENTITY_CARD = 'identity_card';
-    const LAST_NAME = 'last_name';
+    const LAST_NAME = 'lastname';
     const NUMBER= 'number';
 }
