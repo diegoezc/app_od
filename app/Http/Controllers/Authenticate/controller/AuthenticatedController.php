@@ -12,7 +12,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 
-class AunthenticatedController extends Controller
+class AuthenticatedController extends Controller
 {
     protected $service;
     public function __construct(AuthenticatedService $authenticateService)
@@ -21,15 +21,11 @@ class AunthenticatedController extends Controller
     }
     public function login(CredentialRequest $request)
     {
-        $credentials = $request->only('email','password');
-        try {
-            if (! $token = JWTAuth::attempt($credentials)){
-                return $this->sendErrorPopup('invalid_credentials',400);
-            }
-        }catch (JWTException $e){
-            return $this->sendErrorPopup('could_not_create_token',50);
-        }
-        return $this->responseWithData('token');
+         $response = $this->authenticateService->generateAuthenticated($request);
+         if($response['code'] != Response::HTTP_OK){
+             return $this->sendErrorPopup([$response['message']],$response['code']);
+         }
+        return $this->responseWithData($response);
     }
 
 

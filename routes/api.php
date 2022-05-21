@@ -6,8 +6,9 @@ use \App\Http\Controllers\Sector\controller\SectorController;
 use App\Http\Controllers\Occupation\controller\OccupationController;
 use App\Http\Controllers\User\controller\UserController;
 use App\Http\Controllers\Admin\controller\AdminController;
-
 use App\Http\Controllers\User\controller\StoreUserController;
+use App\Http\Controllers\Authenticate\controller\AuthenticatedController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,3 +31,4 @@ Route::get('admins',[AdminController::class, 'index']);
 Route::get('user/detail/{id}',[UserController::class, 'userDetail']);
 Route::get('admin/detail/{id}',[AdminController::class, 'adminDetail']);
 Route::post('user/store', [StoreUserController::class ,'storeUser']);
+Route::post('authenticate',[AuthenticatedController::class, 'login']);

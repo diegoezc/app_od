@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Http\Controllers\Admin\repository\AdminRepository;
 use App\Http\Controllers\Admin\service\AdminService;
+use App\Http\Controllers\Authenticate\repository\AuthenticatedRepository;
+use App\Http\Controllers\Authenticate\service\AuthenticatedService;
 use App\Http\Controllers\DetailUser\repository\DetailUserRepository;
 use App\Http\Controllers\DetailUser\service\DetailUserService;
 use App\Http\Controllers\Occupation\repository\OccupationRepository;
@@ -30,6 +32,7 @@ class RegisterInterfacesProvider extends ServiceProvider
         $this->app->bind(AdminService::class,AdminRepository::class);
         $this->app->bind(OccupationService::class,OccupationRepository::class);
         $this->app->bind(SectorService::class,SectorRepository::class);
+        $this->app->bind(AuthenticatedService::class,AuthenticatedRepository::class);
     }
 
     /**

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Authenticate\service;
 
-interface AuthenticateService
+use App\Http\Requests\CredentialRequest;
+
+interface AuthenticatedService
 {
-    public function
+    public function generateAuthenticated(CredentialRequest $request);
 
 }
