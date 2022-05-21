@@ -14,7 +14,7 @@ class StoreUserController extends Controller
     {
         $this->userService = $userService;
     }
-    public function storeUser(StoreUserRequest $request){
+    public function storeUser( $request){
         return $this->responseWithData($request->all());
 
     }

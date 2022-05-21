@@ -59,8 +59,10 @@ class StoreUserRequest extends FormRequestApi
             $detail_parent.'.'.DetailParentInterface::BUSINESS => $this->rulesSomeTimes(),
             $detail_parent.'.'.DetailParentInterface::OCCUPATION_ID => [
                 ValidatorInterface::SOMETIMES,
-                ValidatorInterface::UNIQUE_CAMP . OccupationInterface::TABLE_NAME.','.'id'
-            ]
+                ValidatorInterface::UNIQUE_CAMP . OccupationInterface::TABLE_NAME.','.'id',
+
+            ],
+            $detail_parent.'.'.DetailParentInterface::PHONE_NUMBER => $this->rulesSomeTimes()
 
         ];
     }
@@ -106,7 +108,6 @@ class StoreUserRequest extends FormRequestApi
             'referred.name' => $this->rulesSomeTimes(),
             'referred.number' => $this->rulesSomeTimes(),
             'referred.email'=> $this->rulesToUnique(ReferredInterface::TABLE_NAME,ReferredInterface::EMAIL, ValidatorInterface::EMAIL_CAMP)
-
         ];
 
         return array_merge($detail_parents_camps,$general_rules);
