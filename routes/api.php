@@ -28,3 +28,4 @@ Route::get('occupations',[OccupationController::class,'index']);
 Route::get('users',[UserController::class,'index']);
 Route::get('admins',[AdminController::class, 'index']);
 Route::get('user/detail/{id}',[UserController::class, 'userDetail']);
+Route::get('admin/detail/{id}',[AdminController::class, 'adminDetail']);

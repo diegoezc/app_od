@@ -20,5 +20,13 @@ class AdminRepository extends Repository implements Service, AdminService
             ->orderBy($orderBy,$type)
             ->paginate($perPage);
     }
+    public function getAdminInfo(int $id)
+    {
+     $admin = $this->findInstance($id);
+     if (!empty($admin)){
+         return $admin;
+     }
+     return 'error';
 
+    }
 }

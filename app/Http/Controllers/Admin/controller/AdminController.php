@@ -24,5 +24,10 @@ class AdminController extends Controller
         return $this->responseWithData($admins);
 
     }
+    public function adminDetail(Request $request,$id)
+    {
+        $admin = $this->adminService->getAdminInfo($id);
+        return $this->responseWithData($admin);
+    }
 
 }
