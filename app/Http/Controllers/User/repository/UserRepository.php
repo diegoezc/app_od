@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User\repository;
 
+use App\Http\Controllers\User\request\StoreUserRequest;
 use App\Models\User;
 use App\Repositories\Repository;
 use App\Services\Service;
@@ -39,6 +40,19 @@ class UserRepository extends Repository implements Service, UserService
             return $user;
         }
         return 'error';
+
+    }
+
+    public function storeUserInfoBasic(StoreUserRequest $request)
+    {
+        $user = new $this->model();
+        $user->name = $request->name;
+        $user->lastname = $request->last_name;
+        $user->email = $request->email;
+        $user->password = '';
+        $user->number = $request->number;
+        $user->save();
+        return $user;
 
     }
 }

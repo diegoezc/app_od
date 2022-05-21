@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User\controller;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\User\request\StoreUserRequest;
 use App\Http\Controllers\User\service\UserService;
+use Illuminate\Session\Store;
 
 class StoreUserController extends Controller
 {
@@ -14,8 +15,9 @@ class StoreUserController extends Controller
     {
         $this->userService = $userService;
     }
-    public function storeUser( $request){
-        return $this->responseWithData($request->all());
+    public function storeUser( StoreUserRequest $request){
+        $user = $this->userService->storeUserInfoBasic($request);
+        return $this->responseWithData($user);
 
     }
 }
