@@ -26,7 +26,7 @@ class CredentialRequest extends FormRequestApi
     {
         return [
             'email' => 'required|min:10',
-            'password' => 'required|min:8',
+            'password' => 'required|min:5',
         ];
     }
     public function messages()

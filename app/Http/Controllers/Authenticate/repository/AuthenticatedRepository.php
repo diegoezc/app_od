@@ -20,9 +20,10 @@ class AuthenticatedRepository extends Repository implements Service, Authenticat
     {
         $message=null;
         $code = Response::HTTP_OK;
+
         $credentials = $request->only('email','password');
             try {
-                if (! $token = JWTAuth::attempt($credentials)) {
+                if (! $token = auth('api_admin')->attempt($credentials)) {
                     $message= 'invalid_credentials';
                     $code = Response::HTTP_FORBIDDEN;
                 }

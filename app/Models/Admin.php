@@ -5,8 +5,10 @@ namespace App\Models;
 use App\Interfaces\Admin\AdminInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Admin extends BaseModel implements AdminInterface
+class Admin extends Authenticatable implements AdminInterface, JWTSubject
 {
     use HasFactory;
     protected $fillable = [
@@ -28,5 +30,13 @@ class Admin extends BaseModel implements AdminInterface
                 });
 
         }
+    }
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+    public function getJWTCustomClaims()
+    {
+        return[];
     }
 }
