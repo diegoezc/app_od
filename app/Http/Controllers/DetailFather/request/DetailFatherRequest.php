@@ -33,4 +33,5 @@ class DetailFatherRequest extends FormRequestApi
             'name.string'=>'el nombre debe ser un string bobo >.<'
         ];
     }
+
 }

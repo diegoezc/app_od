@@ -14,8 +14,9 @@ class AddColumnPhoneNumberInDetailFather extends Migration
     public function up()
     {
         Schema::table('detail_fathers', function (Blueprint $table) {
-            if(Schema::hasColumn('detail_fathers','phone_number')){
-                $table->dropColumn('phone_number')->nullable();
+            if(!Schema::hasColumn('detail_fathers','phone_number')){
+                $table->string('phone_number')->nullable();
+
 
             }
         });
