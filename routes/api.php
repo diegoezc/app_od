@@ -8,6 +8,8 @@ use App\Http\Controllers\User\controller\UserController;
 use App\Http\Controllers\Admin\controller\AdminController;
 use App\Http\Controllers\User\controller\StoreUserController;
 use App\Http\Controllers\Authenticate\controller\AuthenticatedController;
+use App\Http\Controllers\DetailFather\controller\DetailFatherController;
+use App\Http\Controllers\DetailMother\controller\DetailMotherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +34,7 @@ Route::group(['middleware'=>'jwt'],function(){
     Route::get('user/detail/{id}',[UserController::class, 'userDetail']);
     Route::get('admin/detail/{id}',[AdminController::class, 'adminDetail']);
     Route::post('user/store', [StoreUserController::class ,'storeUser']);
-Route::post('authenticate',[AuthenticatedController::class, 'login']);
+    Route::post('authenticate',[AuthenticatedController::class, 'login']);
+    Route::put('detail-father',[DetailFatherController::class,'update']);
+    Route::put('detail-mother',[DetailFatherController::class,'update']);
 });
