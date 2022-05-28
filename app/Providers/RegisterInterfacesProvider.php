@@ -14,6 +14,8 @@ use App\Http\Controllers\DetailMother\repository\DetailMotherRepository;
 use App\Http\Controllers\DetailMother\service\DetailMotherService;
 use App\Http\Controllers\DetailUser\repository\DetailUserRepository;
 use App\Http\Controllers\DetailUser\service\DetailUserService;
+use App\Http\Controllers\Location\repository\LocationRepository;
+use App\Http\Controllers\Location\service\LocationService;
 use App\Http\Controllers\MedicalHistory\repository\MedicalHistoryRepository;
 use App\Http\Controllers\MedicalHistory\service\MedicalHistoryService;
 use App\Http\Controllers\Occupation\repository\OccupationRepository;
@@ -51,6 +53,7 @@ class RegisterInterfacesProvider extends ServiceProvider
         $this->app->bind(DentalHistoryService::class,DentalHistoryRepository::class);
         $this->app->bind(PaymentService::class,PaymentRepository::class);
         $this->app->bind(TypeService::class, TypeRepository::class);
+        $this->app->bind(LocationService::class,LocationRepository::class);
     }
 
     /**

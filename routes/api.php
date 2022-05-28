@@ -13,6 +13,7 @@ use App\Http\Controllers\DetailMother\controller\DetailMotherController;
 use App\Http\Controllers\MedicalHistory\controller\MedicalHistoryController;
 use App\Http\Controllers\DentalHistory\controller\DentalHistoryController;
 use App\Http\Controllers\Payment\controller\PaymentController;
+use App\Http\Controllers\Location\controller\LocationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -48,5 +49,7 @@ Route::group(['middleware'=>'jwt'],function(){
     Route::post('store/pay',[PaymentController::class,'registerPay']);
     Route::get('get/pays/{user}',[PaymentController::class,'getPays']);
     Route::delete('delete/payment/{user}/pay/{pay}',[PaymentController::class,'deletePay']);
+    Route::put('location',[LocationController::class,'update']);
+    Route::put('sector',[SectorController::class,'update']);
 
 });

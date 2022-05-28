@@ -10,7 +10,7 @@ class Location extends BaseModel implements LocationInterface
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        self::NAME
     ];
     public function UserDetails(){
         return $this->hasMany(UserDetail::class,'location_id','id');
