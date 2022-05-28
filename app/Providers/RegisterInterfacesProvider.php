@@ -14,8 +14,12 @@ use App\Http\Controllers\DetailUser\repository\DetailUserRepository;
 use App\Http\Controllers\DetailUser\service\DetailUserService;
 use App\Http\Controllers\Occupation\repository\OccupationRepository;
 use App\Http\Controllers\Occupation\service\OccupationService;
+use App\Http\Controllers\Payment\repository\PaymentRepository;
+use App\Http\Controllers\Payment\service\PaymentService;
 use App\Http\Controllers\Sector\repository\SectorRepository;
 use App\Http\Controllers\Sector\service\SectorService;
+use App\Http\Controllers\Type\repository\TypeRepository;
+use App\Http\Controllers\Type\service\TypeService;
 use App\Http\Controllers\User\repository\UserRepository;
 use App\Http\Controllers\User\service\UserService;
 use App\Repositories\Repository;
@@ -39,6 +43,12 @@ class RegisterInterfacesProvider extends ServiceProvider
         $this->app->bind(AuthenticatedService::class,AuthenticatedRepository::class);
         $this->app->bind(DetailFatherService::class,DetailFatherRepository::class);
         $this->app->bind(DetailMotherService::class,DetailMotherRepository::class);
+
+
+
+
+        $this->app->bind(PaymentService::class,PaymentRepository::class);
+        $this->app->bind(TypeService::class, TypeRepository::class);
     }
 
     /**

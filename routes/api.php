@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Type\controller\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Sector\controller\SectorController;
@@ -10,6 +10,7 @@ use App\Http\Controllers\User\controller\StoreUserController;
 use App\Http\Controllers\Authenticate\controller\AuthenticatedController;
 use App\Http\Controllers\DetailFather\controller\DetailFatherController;
 use App\Http\Controllers\DetailMother\controller\DetailMotherController;
+use App\Http\Controllers\Payment\controller\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,10 @@ Route::group(['middleware'=>'jwt'],function(){
     Route::post('user/store', [StoreUserController::class ,'storeUser']);
     Route::put('detail-father',[DetailFatherController::class,'update']);
     Route::put('detail-mother/{user}',[DetailMotherController::class,'update']);
+    Route::get('type_pays',[TypeController::class,'index']);
+    //pays
+    Route::post('store/pay',[PaymentController::class,'registerPay']);
+    Route::get('get/pays/{user}',[PaymentController::class,'getPays']);
+    Route::delete('delete/payment/{user}/pay/{pay}',[PaymentController::class,'deletePay']);
 
 });
