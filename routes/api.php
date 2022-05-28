@@ -36,5 +36,5 @@ Route::group(['middleware'=>'jwt'],function(){
     Route::post('user/store', [StoreUserController::class ,'storeUser']);
     Route::post('authenticate',[AuthenticatedController::class, 'login']);
     Route::put('detail-father',[DetailFatherController::class,'update']);
-    Route::put('detail-mother',[DetailFatherController::class,'update']);
+    Route::put('detail-mother/{user}',[DetailMotherController::class,'update']);
 });
