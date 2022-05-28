@@ -13,9 +13,7 @@ class DetailFatherRequest extends FormRequestApi
         return true;
 
     }
-    private function validateString(){
-        return [ValidatorInterface::REQUIRED, ValidatorInterface::CAMP_STRING];
-    }
+
 
     public function rules(){
         return [

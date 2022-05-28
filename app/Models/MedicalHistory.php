@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+use App\Interfaces\MedicalHistory\MedicalHistoryInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MedicalHistory extends BaseModel
+class MedicalHistory extends BaseModel implements MedicalHistoryInterface
 {
     use HasFactory;
     protected $fillable = [
-        'delete_at',
-        'description',
-        'user_id',
+        self::DELETE_AT,
+        self::DESCRIPTION,
+        self::USER_ID,
     ];
 }

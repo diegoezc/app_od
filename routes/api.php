@@ -10,6 +10,9 @@ use App\Http\Controllers\User\controller\StoreUserController;
 use App\Http\Controllers\Authenticate\controller\AuthenticatedController;
 use App\Http\Controllers\DetailFather\controller\DetailFatherController;
 use App\Http\Controllers\DetailMother\controller\DetailMotherController;
+use App\Http\Controllers\MedicalHistory\controller\MedicalHistoryController;
+use App\Http\Controllers\DentalHistory\controller\DentalHistoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +40,10 @@ Route::group(['middleware'=>'jwt'],function(){
     Route::post('authenticate',[AuthenticatedController::class, 'login']);
     Route::put('detail-father',[DetailFatherController::class,'update']);
     Route::put('detail-mother/{user}',[DetailMotherController::class,'update']);
+    Route::put('medical_history/{user}',[MedicalHistoryController::class,'update']);
+    Route::get('medical_history/{user}',[MedicalHistoryController::class,'medicalHistoryDetail']);
+    Route::put('dental_history/{user}',[DentalHistoryController::class,'update']);
+    Route::get('dental_history/{user}',[DentalHistoryController::class,'dentalHistoryDetail']);
+
 
 });

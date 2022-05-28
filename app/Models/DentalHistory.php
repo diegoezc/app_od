@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
+use App\Interfaces\DentalHistory\DentalHistoryInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DentalHistory extends BaseModel
+class DentalHistory extends BaseModel implements DentalHistoryInterface
 {
     protected $table='dental_histories';
     use HasFactory;
     protected $fillable = [
-        'description',
-        'deleted_at',
-        'user_id'
+        self::DESCRIPTION,
+        self::DELETE_AT,
+        self::USER_ID
     ];
 }

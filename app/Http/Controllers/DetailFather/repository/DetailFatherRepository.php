@@ -25,7 +25,7 @@ class DetailFatherRepository extends Repository implements Service, DetailFather
             $detailFather->name = $request->name;
             $detailFather->business = $request->business;
             $detailFather->occupation_id = $request->ocupation_id;
-//            $detailFather->phone_number = $request->phone_number;
+            $detailFather->phone_number = $request->phone_number;
             $detailFather->save();
             $userDetail->detail_father_id = $detailFather->id;
             $userDetail->save();
@@ -34,7 +34,7 @@ class DetailFatherRepository extends Repository implements Service, DetailFather
             $detailFather->name = $request->name;
             $detailFather->business = $request->business;
             $detailFather->occupation_id = $request->ocupation_id;
-//            $detailFather->phone_number = $request->phone_number;
+            $detailFather->phone_number = $request->phone_number;
             $detailFather->save();
         }
 
