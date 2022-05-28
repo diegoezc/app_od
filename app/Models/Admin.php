@@ -5,20 +5,19 @@ namespace App\Models;
 use App\Interfaces\Admin\AdminInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable implements AdminInterface, JWTSubject
 {
-    use HasFactory;
+    use HasFactory,HasRoles;
     protected $fillable = [
         'name',
         'email',
         'password'
     ];
-    public function Roles(){
-        return $this->belongsToMany(Rol::class,'rol_admins');
-    }
+
     public function scopeSearch($query, $target){
         if ($target != '')
         {

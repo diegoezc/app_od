@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -14,18 +15,7 @@ class CreateTableRolAdmins extends Migration
 
     public function up()
     {
-        if (!Schema::hasTable('role_admins')) {
-            Schema::create('role_admins', function (Blueprint $table) {
-                $table->id();
-                $table->unsignedBigInteger("role_id")->nullable();
-                $table->unsignedBigInteger("admin_id")->nullable();
 
-
-                $table->timestamps();
-                $table->foreign('role_id')->references('id')->on('roles');
-                $table->foreign('admin_id')->references('id')->on('admins');
-            });
-        }
     }
 
     /**

@@ -13,14 +13,7 @@ class CreateTableRoles extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('roles')){
-            Schema::create('roles',function(Blueprint $table){
-                $table->id();
-                $table->string('name')->comment('nombre del rol');
 
-                $table->timestamps();
-            });
-        }
     }
 
     /**
