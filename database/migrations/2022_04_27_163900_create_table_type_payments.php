@@ -30,7 +30,7 @@ class CreateTableTypePayments extends Migration
                     $table->id();
                     $table->string('amount')->nullable(false);
                     $table->unsignedBigInteger('user_id');
-                    $table->unsignedBigInteger('dental_history_id');
+                    $table->unsignedBigInteger('dental_history_id')->nullable();
                     $table->timestamps();
                     $table->foreign('user_id')->references('id')->on('users');
                     $table->foreign('dental_history_id')->references('id')->on('dental_histories');
