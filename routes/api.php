@@ -25,6 +25,7 @@ use App\Http\Controllers\DetailMother\controller\DetailMotherController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('authenticate',[AuthenticatedController::class, 'login']);
 
 Route::group(['middleware'=>'jwt'],function(){
     Route::get('sectors',[SectorController::class, 'index']);
@@ -34,7 +35,6 @@ Route::group(['middleware'=>'jwt'],function(){
     Route::get('user/detail/{id}',[UserController::class, 'userDetail']);
     Route::get('admin/detail/{id}',[AdminController::class, 'adminDetail']);
     Route::post('user/store', [StoreUserController::class ,'storeUser']);
-    Route::post('authenticate',[AuthenticatedController::class, 'login']);
     Route::put('detail-father',[DetailFatherController::class,'update']);
     Route::put('detail-mother/{user}',[DetailMotherController::class,'update']);
 
