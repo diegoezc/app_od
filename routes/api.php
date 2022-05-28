@@ -35,6 +35,6 @@ Route::group(['middleware'=>'jwt'],function(){
     Route::get('admin/detail/{id}',[AdminController::class, 'adminDetail']);
     Route::post('user/store', [StoreUserController::class ,'storeUser']);
     Route::post('authenticate',[AuthenticatedController::class, 'login']);
-    Route::put('detail-father',[DetailFatherController::class,'update']);
+    Route::put('detail-father/{user}',[DetailFatherController::class,'update']);
     Route::put('detail-mother',[DetailFatherController::class,'update']);
 });
